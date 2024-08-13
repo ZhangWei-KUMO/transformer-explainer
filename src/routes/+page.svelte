@@ -31,8 +31,9 @@
 	import { fetchAndMergeChunks } from '~/utils/fetchChunks';
 	import WeightPopovers from '~/components/WeightPopovers.svelte';
 	import { fade } from 'svelte/transition';
-	import { AutoTokenizer } from '@xenova/transformers';
+	import { AutoTokenizer, pipeline, env  } from '@xenova/transformers';
 	import { ChevronDoubleRightOutline } from 'flowbite-svelte-icons';
+	env.allowLocalModels = false;
 
 	// run model
 	onMount(async () => {
