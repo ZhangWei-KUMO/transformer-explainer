@@ -38,9 +38,8 @@
 	onMount(async () => {
 		// Fetch model onnx
 		const chunkNum = 63; //TODO: move to model meta
-		const chunkUrls = Array(chunkNum)
-			.fill(0)
-			.map((d, i) => `${base}/model/gpt2.onnx.part${i}`);
+		console.log(`${base}/model/gpt2`)
+		const chunkUrls = Array(chunkNum).fill(0).map((d, i) => `${base}/model/gpt2.onnx.part${i}`);
 
 		// Fetch from cache
 		const mergedArray = await fetchAndMergeChunks(chunkUrls);
