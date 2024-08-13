@@ -61,7 +61,14 @@
 		isFetchingModel.set(false);
 
 		// Initialize tokenizer
-		const tokenizer = await AutoTokenizer.from_pretrained('Xenova/gpt2');
+		let tokenizer = ''
+		try{
+			tokenizer = await AutoTokenizer.from_pretrained('Xenova/gpt2');
+		}catch(e){
+			console.log(e)
+			console.log("AutoTokenizer报错")
+			tokenizer = "Error"
+		}
 
 		// Subscribe input change
 		let initialRun = true;
