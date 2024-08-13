@@ -47,7 +47,7 @@
 
 <div class={classNames('attention', className, { expanded: isAttentionExpanded })}>
 	<div class="title" on:mouseenter={handleMouseEnter} on:mouseleave={handleMouseLeave} role="group">
-		<div>多头注意力机制 Multi-head Self Attention</div>
+		<div>多头注意力机制 (Multi-head Self Attention)</div>
 	</div>
 	<div class="content relative">
 		<div class="bounding transformer-bounding" class:active={$isBoundingBoxActive}>

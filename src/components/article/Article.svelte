@@ -12,7 +12,7 @@
 			<a
 				href="https://dl.acm.org/doi/10.5555/3295222.3295349"
 				title="ACM Digital Library"
-				target="_blank">"Attention is All You Need"</a
+				target="_blank">《Attention is All You Need》</a
 			>
 			中，此后成为深度学习模型的首选架构，为 OpenAI 的 <strong>GPT</strong>、Meta 的 <strong>Llama</strong> 和 Google 的<strong>Gemini</strong> 
 			等文本生成模型提供支持。除了文本之外，Transformer 还被应用于
@@ -42,8 +42,8 @@
 		<p>
 			<a href="https://huggingface.co/openai-community/gpt2" title="Hugging Face" target="_blank"
 			>GPT-2</a
-		>模型系列是文本生成 Transformer 的杰出代表。Transformer Explainer 由具有 1.24 亿个参数的 GPT-2（小型）模型提供支持。虽然它不是最新或最强大的 Transformer 模型，
-			但它与当前最高级的模型共享许多相同的架构组件和原理，使其成为理解基础知识的理想起点。
+		>模型系列是文本生成 Transformer 的杰出代表。Transformer 解释器 由具有 1.24 亿个参数的 GPT-2（小型）模型提供支持。
+		虽然它不是最新或最强大的 Transformer 模型，但它与当前最强大的大语音模型共享许多相同的架构组件和原理，使其成为理解基础知识的理想起点。
 		</p>
 	</div>
 

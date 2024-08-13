@@ -32,8 +32,8 @@
 				</svg> -->
 
 				<div class="text" class:active={$isBoundingBoxActive}>
-					{$modelMeta.layer_num - 1} more identical<br /><span class="highlight"
-						>Transformer<br />Blocks</span
+					还有{$modelMeta.layer_num - 1} 相同的<br /><span class="highlight"
+						>Transformer<br />模块</span
 					>.
 				</div>
 				<svg

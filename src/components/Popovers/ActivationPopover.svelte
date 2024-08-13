@@ -13,7 +13,7 @@
 
 <Popover
 	class={classNames('popover activation-popover text-sm', className)}
-	title="GeLu Activation"
+	title="GeLu 激活函数"
 	{offset}
 	{triggeredBy}
 	{trigger}
@@ -22,7 +22,7 @@
 	transition={fade}
 	params={{ duration: 0 }}
 >
-	<div class="activation-content">Applies activation function to neuron outputs.</div></Popover
+	<div class="activation-content">将激活函数应用于神经元输出。</div></Popover
 >
 
 <style>
