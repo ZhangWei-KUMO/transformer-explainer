@@ -33,7 +33,9 @@
 	import { fade } from 'svelte/transition';
 	import { AutoTokenizer, pipeline, env  } from '@xenova/transformers';
 	import { ChevronDoubleRightOutline } from 'flowbite-svelte-icons';
-	env.allowLocalModels = true;
+	
+	env.allowLocalModels = false
+	env.useBrowserCache = false
 
 	// run model
 	onMount(async () => {
