@@ -1,7 +1,7 @@
 <script>
 	import tailwindConfig from '../../../tailwind.config';
 	import resolveConfig from 'tailwindcss/resolveConfig';
-	import { base } from '$app/paths';
+	// import { base } from '$app/paths';
 
 	// import Youtube from './Youtube.svelte';
 
@@ -15,223 +15,138 @@
 
 <div id="description">
 	<div class="article-section">
-		<h1>What is a Transformer?</h1>
+		<h1>什么是Transformer?</h1>
 
 		<p>
-			Transformer is a neural network architecture that has fundamentally changed the approach to
-			Artificial Intelligence. Transformer was first introduced in the seminal paper
+			Transformer 是一种神经网络架构，它从根本上改变了人工智能的方法。Transformer 首次出现于 2017 年的开创性论文
 			<a
 				href="https://dl.acm.org/doi/10.5555/3295222.3295349"
 				title="ACM Digital Library"
 				target="_blank">"Attention is All You Need"</a
 			>
-			in 2017 and has since become the go-to architecture for deep learning models, powering text-generative
-			models like OpenAI's <strong>GPT</strong>, Meta's <strong>Llama</strong>, and Google's
-			<strong>Gemini</strong>. Beyond text, Transformer is also applied in
+			中，此后成为深度学习模型的首选架构，为 OpenAI 的 <strong>GPT</strong>、Meta 的 <strong>Llama</strong> 和 Google 的<strong>Gemini</strong> 
+			等文本生成模型提供支持。除了文本之外，Transformer 还被应用于
 			<a
 				href="https://huggingface.co/learn/audio-course/en/chapter3/introduction"
 				title="Hugging Face"
-				target="_blank">audio generation</a
+				target="_blank">音频生成</a
 			>,
 			<a
 				href="https://huggingface.co/learn/computer-vision-course/unit3/vision-transformers/vision-transformers-for-image-classification"
 				title="Hugging Face"
-				target="_blank">image recognition</a
+				target="_blank">图像识别</a
 			>,
 			<a href="https://elifesciences.org/articles/82819" title="eLife"
-				>protein structure prediction</a
-			>, and even
+				>蛋白质结构预测</a
+			>, 甚至
 			<a
 				href="https://www.deeplearning.ai/the-batch/reinforcement-learning-plus-transformers-equals-efficiency/"
 				title="Deep Learning AI"
-				target="_blank">game playing</a
-			>, demonstrating its versatility across numerous domains.
+				target="_blank">游戏</a
+			>, 证明了其在众多领域的广泛适用性。
 		</p>
 		<p>
-			Fundamentally, text-generative Transformer models operate on the principle of <strong
-				>next-word prediction</strong
-			>: given a text prompt from the user, what is the <em>most probable next word</em> that will follow
-			this input? The core innovation and power of Transformers lie in their use of self-attention mechanism,
-			which allows them to process entire sequences and capture long-range dependencies more effectively
-			than previous architectures.
+			从根本上说，文本生成 Transformer 模型基于下一个词预测的原则运作：给定用户的文本提示，最有可能出现在该输入之后的下一个词是什么？
+			Transformer 的核心创新和强大之处在于其对自注意力机制的使用，这使得它们能够比以前的架构更有效地处理整个序列并捕获远程依赖关系。
 		</p>
 		<p>
-			GPT-2 family of models are prominent examples of text-generative Transformers. Transformer
-			Explainer is powered by the
 			<a href="https://huggingface.co/openai-community/gpt2" title="Hugging Face" target="_blank"
-				>GPT-2</a
-			>
-			(small) model which has 124 million parameters. While it is not the latest or most powerful Transformer
-			model, it shares many of the same architectural components and principles found in the current
-			state-of-the-art models making it an ideal starting point for understanding the basics.
+			>GPT-2</a
+		>模型系列是文本生成 Transformer 的杰出代表。Transformer Explainer 由具有 1.24 亿个参数的 GPT-2（小型）模型提供支持。虽然它不是最新或最强大的 Transformer 模型，
+			但它与当前最先进的模型共享许多相同的架构组件和原理，使其成为理解基础知识的理想起点。
 		</p>
 	</div>
 
 	<div class="article-section">
-		<h1>Transformer Architecture</h1>
+		<h1>Transformer 架构</h1>
 
 		<p>
-			Every text-generative Transformer consists of these <strong>three key components</strong>:
+			每一个文本生成式 Transformer 包含如下 <strong>三个关键部分</strong>:
 		</p>
 		<ol>
 			<li>
-				<strong class="bold-purple">Embedding</strong>: Text input is divided into smaller units
-				called tokens, which can be words or subwords. These tokens are converted into numerical
-				vectors called embeddings, which capture the semantic meaning of words.
+				<strong class="bold-purple">Embedding</strong>: 文本输入被分成称为“token”的更小的单元，
+				可以是单词或子词。这些标记被转换为称为“Embedding”的数字向量，它们捕捉单词的语义。
 			</li>
 			<li>
-				<strong class="bold-purple">Transformer Block</strong> is the fundamental building block of
-				the model that processes and transforms the input data. Each block includes:
+				<strong class="bold-purple">Transformer 块</strong>是模型的基本构建块，用于处理和转换输入数据。每个块包括：
 				<ul class="">
-					<li>
-						<strong>Attention Mechanism</strong>, the core component of the Transformer block. It
-						allows tokens to communicate with other tokens, capturing contextual information and
-						relationships between words.
-					</li>
-					<li>
-						<strong>MLP (Multilayer Perceptron) Layer</strong>, a feed-forward network that operates
-						on each token independently. While the goal of the attention layer is to route
-						information between tokens, the goal of the MLP is to refine each token's
-						representation.
-					</li>
+				  <li>
+					<strong>注意力机制</strong>是 Transformer 块的核心组件。它允许词元与其他词元进行通信，捕获上下文信息和词语之间的关系。
+				  </li>
+				  <li>
+					<strong>MLP（多层感知机）层</strong>是一个前馈神经网络，独立地对每个词元进行操作。注意力层的目标是在词元之间路由信息，而 MLP 的目标是完善每个词元的表示。
+				  </li>
 				</ul>
-			</li>
-			<li>
-				<strong class="bold-purple">Output Probabilities</strong>: The final linear and softmax
-				layers transform the processed embeddings into probabilities, enabling the model to make
-				predictions about the next token in a sequence.
-			</li>
+			  </li>
+			  <li>
+				<strong class="bold-purple">输出概率</strong>：最终的线性层和 softmax 层将处理后的嵌入转换为概率，使模型能够对序列中的下一个词元进行预测。
+			  </li>
 		</ol>
 
 		<div class="architecture-section">
 			<h2>Embedding</h2>
 			<p>
-				Let's say you want to generate text using a Transformer model. You add the prompt like this
-				one: <code>“Data visualization empowers users to”</code>. This input needs to be converted
-				into a format that the model can understand and process. That is where embedding comes in:
-				it transforms the text into a numerical representation that the model can work with. To
-				convert a prompt into embedding, we need to 1) tokenize the input, 2) obtain token
-				embeddings, 3) add positional information, and finally 4) add up token and position
-				encodings to get the final embedding. Let’s see how each of these steps is done.
-			</p>
-			<div class="figure">
-				<img src="./article_assets/embedding.png" width="60%" height="60%" align="middle" />
-			</div>
-			<div class="figure-caption">
-				Figure <span class="attention">1</span>. Expanding the Embedding layer view, showing how the
-				input prompt is converted to a vector representation. The process involves
-				<span class="fig-numbering">(1)</span> Tokenization, (2) Token Embedding, (3) Positional Encoding,
-				and (4) Final Embedding.
-			</div>
-			<div class="article-subsection">
-				<h3>Step 1: Tokenization</h3>
+				假设你想使用 Transformer 模型生成文本。 你添加了像这样的提示：<code>“Data visualization empowers users to”</code>。 此输入需要转换为模型可以理解和处理的格式。 这就是嵌入的用武之地：它将文本转换为模型可以处理的数字表示。 要将提示转换为嵌入，我们需要 1) 对输入进行标记化，2) 获取词元嵌入，3) 添加位置信息，最后 4) 将词元和位置编码相加得到最终嵌入。 让我们看看这些步骤是如何完成的。
+			  </p>
+			  <div class="figure">
+				<img src="./article_assets/embedding.png" alt="embedding" width="60%" height="60%" align="middle" />
+			  </div>
+			  <div class="figure-caption">
+				图 <span class="attention">1</span>。 展开“嵌入”层视图，显示输入提示如何转换为向量表示。 该过程涉及
+				<span class="fig-numbering">(1)</span> 标记化、(2) 词元嵌入、(3) 位置编码和 (4) 最终嵌入。
+			  </div>
+			  <div class="article-subsection">
+				<h3>步骤 1：标记化</h3>
 				<p>
-					Tokenization is the process of breaking down the input text into smaller, more manageable
-					pieces called tokens. These tokens can be a word or a subword. The words <code
-						>"Data"</code
-					>
-					and <code>"vizualization"</code> correspond to unique tokens, while the word
-					<code>"empowers"</code>
-					is split into two tokens. The full vocabulary of tokens is decided before training the model:
-					GPT-2's vocabulary has <code>50,257</code> unique tokens. Now that we split our input text
-					into tokens with distinct IDs, we can obtain their vector representation from embeddings.
+				  标记化是将输入文本分解成更小、更易于管理的部分（称为词元）的过程。 这些词元可以是一个词或一个子词。 单词 <code
+					>"Data"</code
+				  >
+				  和 <code>"vizualization"</code> 对应于唯一的词元，而单词 <code>"empowers"</code>
+				  被拆分为两个词元。 词元的完整词汇表是在训练模型之前决定的：GPT-2 的词汇表有 <code>50,257</code> 个唯一的词元。 现在我们已经将输入文本拆分为具有不同 ID 的词元，我们可以从嵌入中获取它们的向量表示。
 				</p>
 			</div>
 			<div class="article-subsection">
-				<h3>Step 2. Token Embedding</h3>
+				<h3>步骤 2. 词元嵌入</h3>
 				<p>
-					GPT-2 Small represents each token in the vocabulary as a 768-dimensional vector; the
-					dimension of the vector depends on the model. These embedding vectors are stored in a
-					matrix of shape <code>(50,257, 768)</code>, containing approximately 39 million
-					parameters! This extensive matrix allows the model to assign semantic meaning to each
-					token.
+				 GPT-2 Small 将词汇表中的每个词元表示为一个 768 维的向量；向量的维度取决于模型。 这些嵌入向量存储在一个形状为 <code>(50,257, 768)</code> 的矩阵中，包含大约 3900 万个参数！ 这个庞大的矩阵允许模型为每个词元分配语义。
 				</p>
-			</div>
-			<div class="article-subsection">
-				<h3>Step 3. Positional Encoding</h3>
+			  </div>
+			  <div class="article-subsection">
+				<h3>步骤 3. 位置编码</h3>
 				<p>
-					The Embedding layer also encodes information about each token's position in the input
-					prompt. Different models use various methods for positional encoding. GPT-2 trains its own
-					positional encoding matrix from scratch, integrating it directly into the training
-					process.
+				 嵌入层还对每个词元在输入提示中的位置信息进行编码。 不同的模型使用不同的位置编码方法。 GPT-2 从头开始训练自己的位置编码矩阵，并将其直接集成到训练过程中。
 				</p>
-
-				<!-- <div class="article-subsection-l2">
-            <h4>Alternative Positional Encoding Approach <strong class='attention'>[POTENTIALLY COLLAPSIBLE]</strong></h4>
-            <p>
-              Other models, like the original Transformer and BERT,
-              use sinusoidal functions for positional encoding.
-
-              This sinusoidal encoding is deterministic and designed to reflect
-              the absolute as well as the relative position of each token.
-            </p>
-            <p>
-              Each position in a sequence is assigned a unique mathematical
-              representation using a combination of sine and cosine functions.
-
-              For a given position, the sine function represents even dimensions,
-              and the cosine function represents odd dimensions within the positional encoding vector.
-
-              This periodic nature ensures that each position has a consistent encoding,
-              independent of the surrounding context.
-            </p>
-
-            <p>
-              Here’s how it works:
-            </p>
-
-            <span class='attention'>
-              SINUSOIDAL POSITIONAL ENCODING EQUATION
-            </span>
-
-            <ul>
-              <li>
-                <strong>Sine Function</strong>: Used for even indices of the embedding vector.
-              </li>
-              <li>
-                <strong>Cosine Function</strong>: Used for odd indices of the embedding vector.
-            </ul>
-
-            <p>
-              Hover over individual encoding values in the matrix above to
-              see how it's calculated using the sins and cosine functions.
-            </p>
-          </div> -->
-			</div>
-			<div class="article-subsection">
-				<h3>Step 4. Final Embedding</h3>
+			  </div>
+			  <div class="article-subsection">
+				<h3>步骤 4. 最终嵌入</h3>
 				<p>
-					Finally, we sum the token and positional encodings to get the final embedding
-					representation. This combined representation captures both the semantic meaning of the
-					tokens and their position in the input sequence.
+				 最后，我们将词元编码和位置编码相加，得到最终的嵌入表示。 这种组合表示既捕获了词元的语义，也捕获了它们在输入序列中的位置。
 				</p>
-			</div>
+			  </div>
 		</div>
 
 		<div class="architecture-section">
 			<h2>Transformer Block</h2>
 
 			<p>
-				The core of the Transformer's processing lies in the Transformer block, which comprises
-				multi-head self-attention and a Multi-Layer Perceptron layer. Most models consist of
-				multiple such blocks that are stacked sequentially one after the other. The token
-				representations evolve through layers, from the first block to the 12th one, allowing the
-				model to build up an intricate understanding of each token. This layered approach leads to
-				higher-order representations of the input.
+				Transformer 处理的核心在于 Transformer 块，它由多头自注意力机制和多层感知机层组成。
+				大多数模型由多个这样的块组成，这些块按顺序依次堆叠。
+				词元表示从第一个块到第十二个块逐层演化，使模型能够对每个词元建立起复杂的理解。
+				这种分层方法导致了对输入的更高阶表示。
 			</p>
 
 			<div class="article-subsection">
-				<h3>Multi-Head Self-Attention</h3>
+				<h3>多头自注意力机制 Multi-Head Self-Attention</h3>
 				<p>
-					The self-attention mechanism enables the model to focus on relevant parts of the input
-					sequence, allowing it to capture complex relationships and dependencies within the data.
-					Let’s look at how this self-attention is computed step-by-step.
+					自注意力机制使模型能够专注于输入序列的相关部分，从而使其能够捕获数据中的复杂关系和依赖关系。
+					让我们逐步了解如何计算这种自注意力。
 				</p>
 				<div class="article-subsection-l2">
-					<h4>Step 1: Query, Key, and Value Matrices</h4>
+					<h4>第一步: Query, Key, and Value Matrices</h4>
 
 					<div class="figure">
-						<img src="./article_assets/QKV.png" width="80%" align="middle" />
+						<img src="./article_assets/QKV.png" alt="QKV" width="80%" align="middle" />
 					</div>
 					<div class="figure-caption">
 						Figure <span class="attention">2</span>. Computing Query, Key, and Value matrices from
@@ -271,14 +186,13 @@
 					</p>
 				</div>
 				<div class="article-subsection-l2">
-					<h4>Step 2: Masked Self-Attention</h4>
+					<h4>第二步: 掩码自注意力</h4>
 					<p>
-						Masked self-attention allows the model to generate sequences by focusing on relevant
-						parts of the input while preventing access to future tokens.
+						Masked 自注意力机制通过专注于输入的相关部分，同时阻止访问未来的词元，从而使模型能够生成序列。
 					</p>
 
 					<div class="figure">
-						<img src="./article_assets/attention.png" width="80%" align="middle" />
+						<img src="./article_assets/attention.png" alt="attention" width="80%" align="middle" />
 					</div>
 					<div class="figure-caption">
 						Figure <span class="attention">3</span>. Using Query, Key, and Value matrices to
@@ -287,27 +201,21 @@
 
 					<ul>
 						<li>
-							<strong>Attention Score</strong>: The dot product of
-							<span class="q-color">Query</span>
-							and <span class="k-color">Key</span> matrices determines the alignment of each query with
-							each key, producing a square matrix that reflects the relationship between all input tokens.
+							<strong>注意力分数 Attention Score</strong>：<span class="q-color">Query</span>
+							和 <span class="k-color">Key</span> 矩阵的点积决定了每个查询与每个键的对齐，生成一个反映所有输入词元之间关系的方阵。
 						</li>
 						<li>
-							<strong>Masking</strong>: A mask is applied to the upper triangle of the attention
-							matrix to prevent the model from accessing future tokens, setting these values to
-							negative infinity. The model needs to learn how to predict the next token without
-							“peeking” into the future.
+							<strong>掩码</strong>：对注意力矩阵的上三角应用掩码，以防止模型访问未来的词元，将这些值设置为负无穷大。 
+							模型需要学习如何在不“窥视”未来的情况下预测下一个词元。
 						</li>
 						<li>
-							<strong>Softmax</strong>: After masking, the attention score is converted into
-							probability by the softmax operation which takes the exponent of each attention score.
-							Each row of the matrix sums up to one and indicates the relevance of every other token
-							to the left of it.
+							<strong>Softmax</strong>：掩码后，注意力分数通过 softmax 操作转换为概率，该操作取每个注意力分数的指数。 
+							矩阵的每一行总和为 1，表示该行词元左侧所有其他词元的相关性。
 						</li>
 					</ul>
 				</div>
 				<div class="article-subsection-l2">
-					<h4>Step 3: Output</h4>
+					<h4>第三步: 输出</h4>
 					<p>
 						The model uses the masked self-attention scores and multiplies them with the
 						<span class="v-color">Value</span> matrix to get the
@@ -322,7 +230,7 @@
 					<h3>MLP: Multi-Layer Perceptron</h3>
 
 					<div class="figure">
-						<img src="./article_assets/mlp.png" width="70%" align="middle" />
+						<img src="./article_assets/mlp.png" alt="mlp" width="70%" align="middle" />
 					</div>
 					<div class="figure-caption">
 						Figure <span class="attention">4</span>. Using MLP layer to project the self-attention
@@ -330,192 +238,132 @@
 					</div>
 
 					<p>
-						After the multiple heads of self-attention capture the diverse relationships between the
-						input tokens, the concatenated outputs are passed through the Multilayer Perceptron
-						(MLP) layer to enhance the model's representational capacity. The MLP block consists of
-						two linear transformations with a GELU activation function in between. The first linear
-						transformation increases the dimensionality of the input four-fold from <code>768</code>
-						to <code>3072</code>. The second linear transformation reduces the dimensionality back
-						to the original size of <code>768</code>, ensuring that the subsequent layers receive
-						inputs of consistent dimensions. Unlike the self-attention mechanism, the MLP processes
-						tokens independently and simply map them from one representation to another.
+						在多头自注意力机制捕获了输入词元之间的各种关系之后，连接后的输出会传递给多层感知机 (MLP) 层，以增强模型的表示能力。
+						MLP 块由两个线性变换组成，中间有一个 GELU 激活函数。第一个线性变换将输入的维度增加了四倍，
+						从 <code>768</code> 增加到 <code>3072</code>。第二个线性变换将维度减少回原来的大小
+						 <code>768</code>，确保后续层接收维度一致的输入。与自注意力机制不同，MLP 独立处理词元，
+						 只是简单地将它们从一种表示映射到另一种表示。
 					</p>
 				</div>
 
 				<div class="architecture-section">
-					<h2>Output Probabilities</h2>
+					<h2>输出概率</h2>
 					<p>
-						After the input has been processed through all Transformer blocks, the output is passed
-						through the final linear layer to prepare it for token prediction. This layer projects
-						the final representations into a <code>50,257</code>
-						dimensional space, where every token in the vocabulary has a corresponding value called
-						<code>logit</code>. Any token can be the next word, so this process allows us to simply
-						rank these tokens by their likelihood of being that next word. We then apply the softmax
-						function to convert the logits into a probability distribution that sums to one. This
-						will allow us to sample the next token based on its likelihood.
-					</p>
-
-					<div class="figure">
-						<img src="./article_assets/softmax.png" width="60%" align="middle" />
-					</div>
-					<div class="figure-caption">
-						Figure <span class="attention">5</span>. Each token in the vocabulary is assigned a
-						probability based on the model's output logits. These probabilities determine the
-						likelihood of each token being the next word in the sequence.
-					</div>
-
-					<p>
-						The final step is to generate the next token by sampling from this distribution The <code
-							>temperature</code
-						>
-						hyperparameter plays a critical role in this process. Mathematically speaking, it is a very
-						simple operation: model output logits are simply divided by the
-						<code>temperature</code>:
-					</p>
-
-					<ul>
+						在输入经过所有 Transformer 块处理之后，输出会被传递到最终的线性层，以便为词元预测做好准备。 该层将最终表示投影到一个 <code>50,257</code> 维的空间中，词汇表中的每个词元在这个空间中都有一个对应的值，称为 <code>logit</code>。 任何词元都可以是下一个词，因此此过程允许我们简单地根据词元成为下一个词的可能性对它们进行排序。 然后，我们应用 softmax 函数将 logits 转换为总和为 1 的概率分布。 这将允许我们根据词元的可能性对下一个词元进行采样。
+					  </p>
+					  
+					  <div class="figure">
+						<img src="./article_assets/softmax.png" alt="softmax" width="60%" align="middle" />
+					  </div>
+					  <div class="figure-caption">
+						图 <span class="attention">5</span>。 词汇表中的每个词元都会根据模型的输出 logits 被分配一个概率。 这些概率决定了每个词元成为序列中下一个词的可能性。
+					  </div>
+					  
+					  <p>
+						最后一步是通过从这个分布中采样来生成下一个词元。<code>temperature</code>
+						超参数在这个过程中起着至关重要的作用。 从数学上讲，这是一个非常简单的操作：模型输出 logits 只是简单地除以 <code>temperature</code>：
+					  </p>
+					  
+					  <ul>
 						<li>
-							<code>temperature = 1</code>: Dividing logits by one has no effect on the softmax
-							outputs.
+						  <code>temperature = 1</code>：将 logits 除以 1 对 softmax 输出没有影响。
 						</li>
 						<li>
-							<code>temperature &lt; 1</code>: Lower temperature makes the model more confident and
-							deterministic by sharpening the probability distribution, leading to more predictable
-							outputs.
+						  <code>temperature &lt; 1</code>：较低的温度通过锐化概率分布使模型更加自信和确定性，从而导致更可预测的输出。
 						</li>
 						<li>
-							<code>temperature &gt; 1</code>: Higher temperature creates a softer probability
-							distribution, allowing for more randomness in the generated text – what some refer to
-							as model <em>“creativity”</em>.
+						  <code>temperature &gt; 1</code>：较高的温度会创建更柔和的概率分布，从而在生成的文本中允许更多的随机性——有些人将其称为模型的“<em>创造力</em>”。
 						</li>
-					</ul>
-
-					<p>
-						Adjust the temperature and see how you can balance between deterministic and diverse
-						outputs!
-					</p>
+					  </ul>
+					  
+					  <p>
+						调整温度，看看您如何在确定性和多样化输出之间取得平衡！
+					  </p>
 				</div>
 
 				<div class="architecture-section">
-					<h2>Advanced Architectural Features</h2>
+					<h2>高级架构特性</h2>
 
 					<p>
-						There are several advanced architectural features that enhance the performance of
-						Transformer models. While important for the model's overall performance, they are not as
-						important for understanding the core concepts of the architecture. Layer Normalization,
-						Dropout, and Residual Connections are crucial components in Transformer models,
-						particularly during the training phase. Layer Normalization stabilizes training and
-						helps the model converge faster. Dropout prevents overfitting by randomly deactivating
-						neurons. Residual Connections allows gradients to flow directly through the network and
-						helps to prevent the vanishing gradient problem.
+						有几种先进的架构特性可以增强 Transformer 模型的性能。 
+						虽然这些特性对模型的整体性能很重要，但对于理解架构的核心概念来说并不那么重要。 
+						层归一化、Dropout 和残差连接是 Transformer 模型中的关键组件，特别是在训练阶段。 
+						层归一化可以稳定训练并帮助模型更快地收敛。 Dropout 通过随机停用神经元来防止过拟合。 
+						残差连接允许梯度直接流经网络，并有助于防止梯度消失问题。
 					</p>
 					<div class="article-subsection">
 						<h3>Layer Normalization</h3>
 
 						<p>
-							Layer Normalization helps to stabilize the training process and improves convergence.
-							It works by normalizing the inputs across the features, ensuring that the mean and
-							variance of the activations are consistent. This normalization helps mitigate issues
-							related to internal covariate shift, allowing the model to learn more effectively and
-							reducing the sensitivity to the initial weights. Layer Normalization is applied twice
-							in each Transformer block, once before the self-attention mechanism and once before
-							the MLP layer.
+							层归一化有助于稳定训练过程并改善收敛性。 它通过跨特征归一化输入来工作，确保激活值的均值和方差一致。 
+							这种归一化有助于缓解与内部协变量偏移相关的问题，使模型能够更有效地学习并降低对初始权重的敏感性。 
+							在每个 Transformer 块中应用两次层归一化，一次在自注意力机制之前，一次在 MLP 层之前。
 						</p>
 					</div>
 					<div class="article-subsection">
 						<h3>Dropout</h3>
 
 						<p>
-							Dropout is a regularization technique used to prevent overfitting in neural networks
-							by randomly setting a fraction of model weights to zero during training. This
-							encourages the model to learn more robust features and reduces dependency on specific
-							neurons, helping the network generalize better to new, unseen data. During model
-							inference, dropout is deactivated. This essentially means that we are using an
-							ensemble of the trained subnetworks, which leads to a better model performance.
+							Dropout 是一种正则化技术，用于通过在训练期间将一部分模型权重随机设置为零来防止神经网络过拟合。
+							这鼓励模型学习更鲁棒的特征，并减少对特定神经元的依赖，帮助网络更好地泛化到新的、未见过的数据。
+							在模型推理期间，Dropout 被停用。这实质上意味着我们正在使用训练好的子网络的集合，这会带来更好的模型性能。
 						</p>
 					</div>
 					<div class="article-subsection">
-						<h3>Residual Connections</h3>
+						<h3>残差连接 Residual connections</h3>
 
 						<p>
-							Residual connections were first introduced in the ResNet model in 2015. This
-							architectural innovation revolutionized deep learning by enabling the training of very
-							deep neural networks. Essentially, residual connections are shortcuts that bypass one
-							or more layers, adding the input of a layer to its output. This helps mitigate the
-							vanishing gradient problem, making it easier to train deep networks with multiple
-							Transformer blocks stacked on top of each other. In GPT-2, residual connections are
-							used twice within each Transformer block: once before the MLP and once after, ensuring
-							that gradients flow more easily, and earlier layers receive sufficient updates during
-							backpropagation.
+							残差连接最初是在 2015 年的 ResNet 模型中引入的。这种架构创新通过实现对非常深层的神经网络的训练，
+							彻底改变了深度学习。本质上，残差连接是绕过一层或多层的捷径，将一层的输入添加到其输出中。
+							这有助于缓解梯度消失问题，使得更容易训练具有多个 Transformer 块彼此堆叠的深度网络。
+							在 GPT-2 中，每个 Transformer 块中使用两次残差连接：一次在 MLP 之前，一次在 MLP 之后，
+							确保梯度更容易流动，并且早期层在反向传播期间接收到足够的更新。
 						</p>
 					</div>
 				</div>
 
 				<div class="article-section">
-					<h1>Interactive Features</h1>
+					<h1>交互功能</h1>
 					<p>
-						Transformer Explainer is built to be interactive and allows you to explore the inner
-						workings of the Transformer. Here are some of the interactive features you can play
-						with:
+						Transformer Explainer 旨在实现交互性，并允许您探索 Transformer 的内部工作原理。 以下是一些您可以使用的交互功能：
 					</p>
 
 					<ul>
 						<li>
-							<strong>Input your own text sequence</strong> to see how the model processes it and predicts
-							the next word. Explore attention weights, intermediate computations, and see how the final
-							output probabilities are calculated.
+							<strong>输入您自己的文本序列</strong>，以查看模型如何处理它并预测下一个词。 探索注意力权重、中间计算结果，并查看如何计算最终输出概率。
 						</li>
 						<li>
-							<strong>Use the temperature slider</strong> to control the randomness of the model’s predictions.
-							Explore how you can make the model output more deterministic or more creative by changing
-							the temperature value.
+							<strong>使用温度滑块</strong>来控制模型预测的随机性。 探索如何通过更改温度值来使模型输出更具确定性或更具创造性。
 						</li>
 						<li>
-							<strong>Interact with attention maps</strong> to see how the model focuses on different
-							tokens in the input sequence. Hover over tokens to highlight their attention weights and
-							explore how the model captures context and relationships between words.
+							<strong>与注意力图互动</strong>，以查看模型如何关注输入序列中的不同词元。 将鼠标悬停在词元上以突出显示其注意力权重，并探索模型如何捕获上下文和词语之间的关系。
 						</li>
 					</ul>
 				</div>
 
 				<div class="article-section">
-					<h2>Video Tutorial</h2>
-					<div class="video-container">
-						<iframe
-							src="https://www.youtube.com/embed/ECR4oAwocjs"
-							frameborder="0"
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-							allowfullscreen
-						>
-						</iframe>
-					</div>
-				</div>
-
-				<div class="article-section">
-					<h2>How is Transformer Explainer Implemented?</h2>
+					<h2>Transformer Explainer 如何实现？</h2>
 					<p>
-						Transformer Explainer features a live GPT-2 (small) model running directly in the
-						browser. This model is derived from the PyTorch implementation of GPT by Andrej
-						Karpathy's
+						Transformer Explainer 的特色在于直接在浏览器中运行的 GPT-2（小型）实时模型。 该模型源自 Andrej Karpathy 的
 						<a href="https://github.com/karpathy/nanoGPT" title="Github" target="_blank"
-							>nanoGPT project</a
+							>nanoGPT 项目</a
 						>
-						and has been converted to
-						<a href="https://onnxruntime.ai/" title="ONNX" target="_blank">ONNX Runtime</a>
-						for seamless in-browser execution. The interface is built using JavaScript, with
-						<a href="https://kit.svelte.dev/" title="Svelte" target="_blank">Svelte</a>
-						as a front-end framework and
-						<a href="http://D3.js" title="D3" target="_blank">D3.js</a>
-						for creating dynamic visualizations. Numerical values are updated live following the user
-						input.
+						中的 PyTorch GPT 实现，并已转换为
+						<a href="https://onnxruntime.ai/" title="ONNX" target="_blank">ONNX Runtime</a
+						>
+						，以实现无缝的浏览器内执行。 该界面使用 JavaScript 构建，
+						<a href="https://kit.svelte.dev/" title="Svelte" target="_blank">Svelte</a
+						>
+						作为前端框架，
+						<a href="http://D3.js" title="D3" target="_blank">D3.js</a
+						>
+						用于创建动态可视化。 数值会根据用户输入实时更新。
 					</p>
 				</div>
 
 				<div class="article-section">
-					<h2>Who developed the Transformer Explainer?</h2>
+					<h2>谁开发了本项目?</h2>
 					<p>
-						Transformer Explainer was created by
-
 						<a href="https://aereeeee.github.io/" target="_blank">Aeree Cho</a>,
 						<a href="https://www.linkedin.com/in/chaeyeonggracekim/" target="_blank">Grace C. Kim</a
 						>,
@@ -525,8 +373,7 @@
 						<a href="https://seongmin.xyz/" target="_blank">Seongmin Lee</a>,
 						<a href="https://bhoov.com/" target="_blank">Benjamin Hoover</a>, and
 						<a href="https://poloclub.github.io/polochau/" target="_blank">Polo Chau</a>
-
-						at the Georgia Institute of Technology.
+						<a href="https://github.com/ZhangWei-KUMO" target="_blank">中文翻译：Lewis Zhang</a>
 					</p>
 				</div>
 			</div>
