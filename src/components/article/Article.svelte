@@ -43,7 +43,7 @@
 			<a href="https://huggingface.co/openai-community/gpt2" title="Hugging Face" target="_blank"
 			>GPT-2</a
 		>模型系列是文本生成 Transformer 的杰出代表。Transformer Explainer 由具有 1.24 亿个参数的 GPT-2（小型）模型提供支持。虽然它不是最新或最强大的 Transformer 模型，
-			但它与当前最先进的模型共享许多相同的架构组件和原理，使其成为理解基础知识的理想起点。
+			但它与当前最高级的模型共享许多相同的架构组件和原理，使其成为理解基础知识的理想起点。
 		</p>
 	</div>
 
@@ -62,29 +62,32 @@
 				<strong class="bold-purple">Transformer 块</strong>是模型的基本构建块，用于处理和转换输入数据。每个块包括：
 				<ul class="">
 				  <li>
-					<strong>注意力机制</strong>是 Transformer 块的核心组件。它允许词元与其他词元进行通信，捕获上下文信息和词语之间的关系。
+					<strong>注意力机制</strong>是 Transformer 块的核心组件。它允许Token与其他Token进行通信，捕获上下文信息和词语之间的关系。
 				  </li>
 				  <li>
-					<strong>MLP（多层感知机）层</strong>是一个前馈神经网络，独立地对每个词元进行操作。注意力层的目标是在词元之间路由信息，而 MLP 的目标是完善每个词元的表示。
+					<strong>MLP（多层感知机）层</strong>是一个前馈神经网络，独立地对每个Token进行操作。注意力层的目标是在Token之间路由信息，而 MLP 的目标是完善每个Token的表示。
 				  </li>
 				</ul>
 			  </li>
 			  <li>
-				<strong class="bold-purple">输出概率</strong>：最终的线性层和 softmax 层将处理后的嵌入转换为概率，使模型能够对序列中的下一个词元进行预测。
+				<strong class="bold-purple">输出概率</strong>：最终的线性层和 softmax 层将处理后的嵌入转换为概率，使模型能够对序列中的下一个Token进行预测。
 			  </li>
 		</ol>
 
 		<div class="architecture-section">
 			<h2>Embedding</h2>
 			<p>
-				假设你想使用 Transformer 模型生成文本。 你添加了像这样的提示：<code>“Data visualization empowers users to”</code>。 此输入需要转换为模型可以理解和处理的格式。 这就是嵌入的用武之地：它将文本转换为模型可以处理的数字表示。 要将提示转换为嵌入，我们需要 1) 对输入进行标记化，2) 获取词元嵌入，3) 添加位置信息，最后 4) 将词元和位置编码相加得到最终嵌入。 让我们看看这些步骤是如何完成的。
+				假设你想使用 Transformer 模型生成文本。 你添加了像这样的提示：<code>“Data visualization empowers users to”</code>。 
+				此输入需要转换为模型可以理解和处理的格式。 这就是嵌入的用武之地：它将文本转换为模型可以处理的数字表示。
+				 要将提示转换为嵌入，我们需要 1) 对输入进行Token化，2) 获取Token Embedding，3) 添加位置信息，最后 4) 将Token和位置编码相加得到最终嵌入。
+				  让我们看看这些步骤是如何完成的。
 			  </p>
 			  <div class="figure">
 				<img src="./article_assets/embedding.png" alt="embedding" width="60%" height="60%" align="middle" />
 			  </div>
 			  <div class="figure-caption">
 				图 <span class="attention">1</span>。 展开“嵌入”层视图，显示输入提示如何转换为向量表示。 该过程涉及
-				<span class="fig-numbering">(1)</span> 标记化、(2) 词元嵌入、(3) 位置编码和 (4) 最终嵌入。
+				<span class="fig-numbering">(1)</span> Token化、(2) Token嵌入、(3) 位置编码和 (4) 最终嵌入。
 			  </div>
 			  <div class="article-subsection">
 				<h3>步骤 1：Token化</h3>
@@ -124,7 +127,7 @@
 			<p>
 				Transformer 处理的核心在于 Transformer 块，它由多头自注意力机制和多层感知机层组成。
 				大多数模型由多个这样的块组成，这些块按顺序依次堆叠。
-				词元表示从第一个块到第十二个块逐层演化，使模型能够对每个词元建立起复杂的理解。
+				Token表示从第一个块到第十二个块逐层演化，使模型能够对每个Token建立起复杂的理解。
 				这种分层方法导致了对输入的更高阶表示。
 			</p>
 
@@ -173,7 +176,7 @@
 				<div class="article-subsection-l2">
 					<h4>第二步: 掩码自注意力</h4>
 					<p>
-						掩码自注意力机制通过专注于输入的相关部分，同时阻止访问未来的词元，从而使模型能够生成序列。
+						掩码自注意力机制通过专注于输入的相关部分，同时阻止访问未来的Token，从而使模型能够生成序列。
 					</p>
 
 					<div class="figure">
@@ -267,7 +270,7 @@
 					<h2>高级架构特性</h2>
 
 					<p>
-						有几种先进的架构特性可以增强 Transformer 模型的性能。 
+						有几种高级的架构特性可以增强 Transformer 模型的性能。 
 						虽然这些特性对模型的整体性能很重要，但对于理解架构的核心概念来说并不那么重要。 
 						层归一化、Dropout 和残差连接是 Transformer 模型中的关键组件，特别是在训练阶段。 
 						层归一化可以稳定训练并帮助模型更快地收敛。 Dropout 通过随机停用神经元来防止过拟合。 
