@@ -25,7 +25,7 @@ const config = {
 			'~': './src'
 		},
 		paths: {
-			base: process.env.NODE_ENV === 'production' ? '/transformer-explainer' : ''
+			base: process.env.NODE_ENV === 'production' ? '/transformer-explainer' : '/transformer-explainer'
 		}
 	}
 };
