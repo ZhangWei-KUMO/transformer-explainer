@@ -1,16 +1,6 @@
 <script>
 	import tailwindConfig from '../../../tailwind.config';
 	import resolveConfig from 'tailwindcss/resolveConfig';
-	// import { base } from '$app/paths';
-
-	// import Youtube from './Youtube.svelte';
-
-	let softmaxEquation = `$$\\text{Softmax}(x_{i}) = \\frac{\\exp(x_i)}{\\sum_j \\exp(x_j)}$$`;
-	let reluEquation = `$$\\text{ReLU}(x) = \\max(0,x)$$`;
-
-	let currentPlayer;
-
-	const { theme } = resolveConfig(tailwindConfig);
 </script>
 
 <div id="description">
