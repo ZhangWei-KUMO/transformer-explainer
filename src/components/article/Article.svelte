@@ -162,7 +162,7 @@
 					<ul>
 						<li>
 							<strong class="q-color font-medium">Query (Q)</strong>是你在搜索引擎栏中输入的搜索文本。 
-							这是你想要*“查找更多信息”*的词符。</em>.
+这是你想要“查找更多信息”的词符.
 						</li>
 						<li>
 							<strong class="k-color font-medium">Key (K)</strong>  是搜索结果窗口中每个网页的标题。 
