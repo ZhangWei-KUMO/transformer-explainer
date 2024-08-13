@@ -87,31 +87,33 @@
 				<span class="fig-numbering">(1)</span> 标记化、(2) 词元嵌入、(3) 位置编码和 (4) 最终嵌入。
 			  </div>
 			  <div class="article-subsection">
-				<h3>步骤 1：标记化</h3>
+				<h3>步骤 1：Token化</h3>
 				<p>
-				  标记化是将输入文本分解成更小、更易于管理的部分（称为词元）的过程。 这些词元可以是一个词或一个子词。 单词 <code
+				  Token化是将输入文本分解成更小、更易于管理的部分（称为Token）的过程。 这些Token可以是一个词或一个子词。 单词 <code
 					>"Data"</code
 				  >
-				  和 <code>"vizualization"</code> 对应于唯一的词元，而单词 <code>"empowers"</code>
-				  被拆分为两个词元。 词元的完整词汇表是在训练模型之前决定的：GPT-2 的词汇表有 <code>50,257</code> 个唯一的词元。 现在我们已经将输入文本拆分为具有不同 ID 的词元，我们可以从嵌入中获取它们的向量表示。
+				  和 <code>"vizualization"</code> 对应于唯一的Token，而单词 <code>"empowers"</code>
+				  被拆分为两个Token。 词元的完整词汇表是在训练模型之前决定的：GPT-2 的词汇表有 <code>50,257</code> 个唯一的Token。
+				   现在我们已经将输入文本拆分为具有不同 ID 的Token，我们可以从Embedding中获取它们的向量表示。
 				</p>
 			</div>
 			<div class="article-subsection">
-				<h3>步骤 2. 词元嵌入</h3>
+				<h3>步骤 2. Token Embedding</h3>
 				<p>
-				 GPT-2 Small 将词汇表中的每个词元表示为一个 768 维的向量；向量的维度取决于模型。 这些嵌入向量存储在一个形状为 <code>(50,257, 768)</code> 的矩阵中，包含大约 3900 万个参数！ 这个庞大的矩阵允许模型为每个词元分配语义。
+				 GPT-2 Small 模型将词汇表中的每个Token表示为一个 768 维的向量；向量的维度取决于模型。 这些嵌入向量存储在一个形状为 <code>(50,257, 768)</code> 的矩阵中，包含大约 3900 万个参数！ 
+				 这个庞大的矩阵允许模型为每个Token分配语义。
 				</p>
 			  </div>
 			  <div class="article-subsection">
 				<h3>步骤 3. 位置编码</h3>
 				<p>
-				 嵌入层还对每个词元在输入提示中的位置信息进行编码。 不同的模型使用不同的位置编码方法。 GPT-2 从头开始训练自己的位置编码矩阵，并将其直接集成到训练过程中。
+				 Embedding层还对每个Token在输入提示中的位置信息进行编码。 不同的模型使用不同的位置编码方法。 GPT-2 从头开始训练自己的位置编码矩阵，并将其直接集成到训练过程中。
 				</p>
 			  </div>
 			  <div class="article-subsection">
 				<h3>步骤 4. 最终嵌入</h3>
 				<p>
-				 最后，我们将词元编码和位置编码相加，得到最终的嵌入表示。 这种组合表示既捕获了词元的语义，也捕获了它们在输入序列中的位置。
+				 最后，我们将Token编码和位置编码相加，得到最终的Embedding表示。 这种组合表示既捕获了Token的语义，也捕获了它们在输入序列中的位置。
 				</p>
 			  </div>
 		</div>
@@ -143,8 +145,8 @@
 						图 <span class="attention">2</span>. 从原始嵌入计算查询、键和值矩阵。
 					</div>
 					<p>
-						每个词符的嵌入向量都被转换为三个向量：<span class="q-color">查询（Q）</span>
-						<span class="k-color">键（K）</span> 和 <span class="v-color">值（V）</span>。 
+						每个词符的嵌入向量都被转换为三个向量：<span class="q-color">Query（Q）</span>
+						<span class="k-color">Key（K）</span> 和 <span class="v-color">Value（V）</span>。 
 						这些向量是通过将输入嵌入矩阵与 <span class="q-color">Q</span>
 						<span class="k-color">K</span> 和 <span class="v-color">V</span> 的学习权重矩阵相乘得到的。 
 						下面是一个网络搜索的例子，可以帮助我们建立对这些矩阵的一些直观认识：
@@ -152,15 +154,14 @@
 					<ul>
 						<li>
 							<strong class="q-color font-medium">Query (Q)</strong>是你在搜索引擎栏中输入的搜索文本。 
-这是你想要“查找更多信息”的词符.
 						</li>
 						<li>
 							<strong class="k-color font-medium">Key (K)</strong>  是搜索结果窗口中每个网页的标题。 
-							它代表了查询可以关注的可能的词符。
+							它代表了Query可以关注的可能的token。
 						</li>
 						<li>
-							<strong class="v-color font-medium">Value (V)</strong> 是显示的网页的实际内容。 一旦我们将适当的搜索词（查询）与相关结果（键）匹配，
-							我们希望获得最相关页面的内容（值）。
+							<strong class="v-color font-medium">Value (V)</strong> 是显示的网页的实际内容。 一旦我们将适当的搜索词（Query）与相关结果（Key）匹配，
+							我们希望获得最相关页面的内容（Value）。
 						</li>
 					</ul>
 					<p>
@@ -172,29 +173,29 @@
 				<div class="article-subsection-l2">
 					<h4>第二步: 掩码自注意力</h4>
 					<p>
-						Masked 自注意力机制通过专注于输入的相关部分，同时阻止访问未来的词元，从而使模型能够生成序列。
+						掩码自注意力机制通过专注于输入的相关部分，同时阻止访问未来的词元，从而使模型能够生成序列。
 					</p>
 
 					<div class="figure">
 						<img src="./article_assets/attention.png" alt="attention" width="80%" align="middle" />
 					</div>
 					<div class="figure-caption">
-						图 <span class="attention">3</span>. 使用查询、键和值矩阵计算掩码自注意力
+						图 <span class="attention">3</span>. 使用Q、K和V矩阵计算掩码自注意力
 
 					</div>
 
 					<ul>
 						<li>
 							<strong>注意力分数 Attention Score</strong>：<span class="q-color">Query</span>
-							和 <span class="k-color">Key</span> 矩阵的点积决定了每个查询与每个键的对齐，生成一个反映所有输入词元之间关系的方阵。
+							和 <span class="k-color">Key</span> 矩阵的点积决定了每个Query与每个Key的对齐，生成一个反映所有输入词元之间关系的方阵。
 						</li>
 						<li>
-							<strong>掩码</strong>：对注意力矩阵的上三角应用掩码，以防止模型访问未来的词元，将这些值设置为负无穷大。 
-							模型需要学习如何在不“窥视”未来的情况下预测下一个词元。
+							<strong>掩码</strong>：对注意力矩阵的上三角应用掩码，以防止模型访问未来的Token，将这些值设置为负无穷大。 
+							模型需要学习如何在不“窥视”未来的情况下预测下一个Token。
 						</li>
 						<li>
 							<strong>Softmax</strong>：掩码后，注意力分数通过 softmax 操作转换为概率，该操作取每个注意力分数的指数。 
-							矩阵的每一行总和为 1，表示该行词元左侧所有其他词元的相关性。
+							矩阵的每一行总和为 1，表示该行Token左侧所有其他Token的相关性。
 						</li>
 					</ul>
 				</div>
@@ -203,7 +204,7 @@
 					<p>
 						模型使用掩码自注意力分数并将其与 <span class="v-color">Value</span> 矩阵相乘，得到自注意力机制的 
 						<span class="purple-color">最终输出</span>。 
-						GPT-2 有 `12` 个自注意力头，每个头捕捉词符之间不同的关系。 这些头的输出被连接起来，并通过一个线性投影。
+						GPT-2 有 `12` 个自注意力头，每个头捕捉Token之间不同的关系。 这些头的输出被连接起来，并穿过一个线性投影。
 					</p>
 				</div>
 
@@ -219,10 +220,10 @@
 					</div>
 
 					<p>
-						在多头自注意力机制捕获了输入词元之间的各种关系之后，连接后的输出会传递给多层感知机 (MLP) 层，以增强模型的表示能力。
+						在多头自注意力机制捕获了输入Token之间的各种关系之后，连接后的输出会传递给多层感知机 (MLP) 层，以增强模型的表示能力。
 						MLP 块由两个线性变换组成，中间有一个 GELU 激活函数。第一个线性变换将输入的维度增加了四倍，
 						从 <code>768</code> 增加到 <code>3072</code>。第二个线性变换将维度减少回原来的大小
-						 <code>768</code>，确保后续层接收维度一致的输入。与自注意力机制不同，MLP 独立处理词元，
+						 <code>768</code>，确保后续层接收维度一致的输入。与自注意力机制不同，MLP 独立处理Token，
 						 只是简单地将它们从一种表示映射到另一种表示。
 					</p>
 				</div>
@@ -230,7 +231,7 @@
 				<div class="architecture-section">
 					<h2>输出概率</h2>
 					<p>
-						在输入经过所有 Transformer 块处理之后，输出会被传递到最终的线性层，以便为词元预测做好准备。 该层将最终表示投影到一个 <code>50,257</code> 维的空间中，词汇表中的每个词元在这个空间中都有一个对应的值，称为 <code>logit</code>。 任何词元都可以是下一个词，因此此过程允许我们简单地根据词元成为下一个词的可能性对它们进行排序。 然后，我们应用 softmax 函数将 logits 转换为总和为 1 的概率分布。 这将允许我们根据词元的可能性对下一个词元进行采样。
+						在输入经过所有 Transformer 块处理之后，输出会被传递到最终的线性层，以便为Token预测做好准备。 该层将最终表示投影到一个 <code>50,257</code> 维的空间中，词汇表中的每个词元在这个空间中都有一个对应的值，称为 <code>logit</code>。 任何词元都可以是下一个词，因此此过程允许我们简单地根据词元成为下一个词的可能性对它们进行排序。 然后，我们应用 softmax 函数将 logits 转换为总和为 1 的概率分布。 这将允许我们根据词元的可能性对下一个词元进行采样。
 					  </p>
 					  
 					  <div class="figure">
@@ -241,7 +242,7 @@
 					  </div>
 					  
 					  <p>
-						最后一步是通过从这个分布中采样来生成下一个词元。<code>temperature</code>
+						最后一步是通过从这个分布中采样来生成下一个Token。<code>temperature</code>
 						超参数在这个过程中起着至关重要的作用。 从数学上讲，这是一个非常简单的操作：模型输出 logits 只是简单地除以 <code>temperature</code>：
 					  </p>
 					  
@@ -250,15 +251,15 @@
 						  <code>temperature = 1</code>：将 logits 除以 1 对 softmax 输出没有影响。
 						</li>
 						<li>
-						  <code>temperature &lt; 1</code>：较低的温度通过锐化概率分布使模型更加自信和确定性，从而导致更可预测的输出。
+						  <code>temperature &lt; 1</code>：较低的temperature通过锐化概率分布使模型更加自信和确定性，从而导致更可预测的输出。
 						</li>
 						<li>
-						  <code>temperature &gt; 1</code>：较高的温度会创建更柔和的概率分布，从而在生成的文本中允许更多的随机性——有些人将其称为模型的“<em>创造力</em>”。
+						  <code>temperature &gt; 1</code>：较高的temperature会创建更柔和的概率分布，从而在生成的文本中允许更多的随机性——有些人将其称为模型的“<em>创造力</em>”。
 						</li>
 					  </ul>
 					  
 					  <p>
-						调整温度，看看您如何在确定性和多样化输出之间取得平衡！
+						调整temperature，看看您如何在确定性和多样化输出之间取得平衡！
 					  </p>
 				</div>
 
