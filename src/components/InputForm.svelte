@@ -59,7 +59,7 @@
 	};
 
 	const handleSubmit = (e) => {
-		onFocusInput();
+		onFocusInput(e);
 		inputText.set(inputTextTemp);
 	};
 
