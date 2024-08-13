@@ -276,7 +276,7 @@
 				shape={'circle'}
 				colorScale={qkColorScale}
 			/>
-			<div class="matrix-label">Dot product</div>
+			<div class="matrix-label">点积</div>
 			<Tooltip class="popover tooltip">
 				<Katex math={'Q \\cdot K^T'}></Katex>
 			</Tooltip>
@@ -423,7 +423,7 @@
 				colorScale={softmaxColorScale}
 			/>
 
-			<div class="matrix-label">Attention</div>
+			<div class="matrix-label">注意力</div>
 		</div>
 	</div>
 </div>

@@ -118,7 +118,7 @@
 		on:mouseenter={handleMouseEnter}
 		on:mouseleave={handleMouseLeave}
 	>
-		<div>Embedding</div>
+		<div>嵌入(Embedding)</div>
 	</div>
 	<div class="content relative">
 		<div class="token-column resizable resize-watch flex">
@@ -143,31 +143,14 @@
 				<div class="column token-embedding embedding-detail">
 					<div class="subtitle flex items-center gap-1">
 						<span>Token<br />Embedding</span><HelpPopover id="token-embedding"
-							>{`Converts tokens into \nsemantically meaningful \nnumerical representations.`}</HelpPopover
+							>{`将Token转换为语义上有意义的数字形式`}</HelpPopover
 						>
 					</div>
 					{#each $tokens as token, index}
 						<div class="token-id flex items-center">
 							<div class="vocab-index ellipsis flex items-center text-right text-xs text-gray-400">
 								<div class="flex flex-col items-center">
-									<!-- {#if index === 0}
-										<div class="look-up flex items-center gap-1">
-											<span>look up</span><svg
-												class="h-3 w-3 text-gray-400"
-												aria-hidden="true"
-												xmlns="http://www.w3.org/2000/svg"
-												fill="none"
-												viewBox="0 0 24 24"
-											>
-												<path
-													stroke="currentColor"
-													stroke-linecap="round"
-													stroke-width="2"
-													d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
-												/>
-											</svg>
-										</div>
-									{/if} -->
+								
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 31 9"
@@ -203,8 +186,8 @@
 				</div>
 				<div class="column embedding-detail position-embedding">
 					<div class="subtitle flex gap-1">
-						<span>Positional<br />Encoding</span><HelpPopover id="position-embedding"
-							>{`Encodes positional \ninformation of tokens into \nnumerical representations.`}</HelpPopover
+						<span>位置<br />编码</span><HelpPopover id="position-embedding"
+							>{`位置编码 \ni将标记的位置信息编码为数字形式。`}</HelpPopover
 						>
 					</div>
 					{#each $tokens as token, index}

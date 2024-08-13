@@ -13,7 +13,7 @@
 
 <Popover
 	class={classNames('popover ln-popover text-sm', className)}
-	title="Layer Normalization"
+	title="归一化层"
 	{offset}
 	{triggeredBy}
 	{trigger}
@@ -23,6 +23,6 @@
 	params={{ duration: 0 }}
 >
 	<div class="ln-content w-[10rem]">
-		Standardizes layer inputs to maintain consistent mean and variance.
+		标准化层输入以保持一致的均值和方差。
 	</div></Popover
 >

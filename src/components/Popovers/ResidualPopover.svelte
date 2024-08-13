@@ -14,7 +14,7 @@
 
 <Popover
 	class={classNames('popover residual-popover text-sm', className)}
-	title="Residual Connection"
+	title="残差连接"
 	{offset}
 	{triggeredBy}
 	{trigger}
@@ -25,7 +25,7 @@
 	{reference}
 >
 	<div class="residual-content">
-		Adds skip-connections to allow for better gradient flow.
+		添加跳跃连接以实现更好的梯度流。
 	</div></Popover
 >
 

@@ -20,5 +20,5 @@
 	{placement}
 	arrow={false}
 >
-	<div class="dropout-content">Disables randomly selected neurons.</div></Popover
+	<div class="dropout-content">禁用随机选择的神经元</div></Popover
 >
