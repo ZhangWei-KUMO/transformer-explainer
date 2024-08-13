@@ -176,7 +176,7 @@
 				{/if}
 				{#if $isLoaded && $isFetchingModel}
 					<span class="helper-text"
-						>正在下载GPT-2模型，请耐心等待模型下载完成 (模型大小：600MB)</span
+						>正在从Huggingface下载GPT-2模型，请耐心等待模型下载完成 (模型大小：600MB) 中国大陆用户需开启科学上网</span
 					>
 				{:else if exceedLimit}
 					<span class="helper-text">你可以输入 {wordLimit} 个单词.</span>
