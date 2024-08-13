@@ -150,7 +150,7 @@
 		on:mouseenter={handleMouseEnter}
 		on:mouseleave={handleMouseLeave}
 	>
-		<div>Probabilities</div>
+		<div>概率</div>
 	</div>
 	<div
 		class="content resize-watch relative"

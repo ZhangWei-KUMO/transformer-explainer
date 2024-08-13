@@ -148,41 +148,35 @@
 					<div class="figure">
 						<img src="./article_assets/QKV.png" alt="QKV" width="80%" align="middle" />
 					</div>
+					
 					<div class="figure-caption">
-						Figure <span class="attention">2</span>. Computing Query, Key, and Value matrices from
-						the original embedding.
+						图 <span class="attention">2</span>. 从原始嵌入计算查询、键和值矩阵。
 					</div>
-
 					<p>
-						Each token's embedding vector is transformed into three vectors:
-						<span class="q-color">Query (Q)</span>,
-						<span class="k-color">Key (K)</span>, and
-						<span class="v-color">Value (V)</span>. These vectors are derived by multiplying the
-						input embedding matrix with learned weight matrices for
-						<span class="q-color">Q</span>,
-						<span class="k-color">K</span>, and
-						<span class="v-color">V</span>. Here's a web search analogy to help us build some
-						intuition behind these matrices:
+						每个词符的嵌入向量都被转换为三个向量：<span class="q-color">查询（Q）</span>
+						<span class="k-color">键（K）</span> 和 <span class="v-color">值（V）</span>。 
+						这些向量是通过将输入嵌入矩阵与 <span class="q-color">Q</span>
+						<span class="k-color">K</span> 和 <span class="v-color">V</span> 的学习权重矩阵相乘得到的。 
+						下面是一个网络搜索的例子，可以帮助我们建立对这些矩阵的一些直观认识：
 					</p>
 					<ul>
 						<li>
-							<strong class="q-color font-medium">Query (Q)</strong> is the search text you type in
-							the search engine bar. This is the token you want to
-							<em>"find more information about"</em>.
+							<strong class="q-color font-medium">Query (Q)</strong>是你在搜索引擎栏中输入的搜索文本。 
+							这是你想要*“查找更多信息”*的词符。</em>.
 						</li>
 						<li>
-							<strong class="k-color font-medium">Key (K)</strong> is the title of each web page in the
-							search result window. It represents the possible tokens the query can attend to.
+							<strong class="k-color font-medium">Key (K)</strong>  是搜索结果窗口中每个网页的标题。 
+							它代表了查询可以关注的可能的词符。
 						</li>
 						<li>
-							<strong class="v-color font-medium">Value (V)</strong> is the actual content of web pages
-							shown. Once we matched the appropriate search term (Query) with the relevant results (Key),
-							we want to get the content (Value) of the most relevant pages.
+							<strong class="v-color font-medium">Value (V)</strong> 是显示的网页的实际内容。 一旦我们将适当的搜索词（查询）与相关结果（键）匹配，
+							我们希望获得最相关页面的内容（值）。
 						</li>
 					</ul>
 					<p>
-						By using these QKV values, the model can calculate attention scores, which determine how
-						much focus each token should receive when generating predictions.
+						通过使用这些 QKV 值，模型可以计算注意力分数，该分数决定了每个词符在生成预测时应该获得多少关注。
+
+
 					</p>
 				</div>
 				<div class="article-subsection-l2">
@@ -195,8 +189,8 @@
 						<img src="./article_assets/attention.png" alt="attention" width="80%" align="middle" />
 					</div>
 					<div class="figure-caption">
-						Figure <span class="attention">3</span>. Using Query, Key, and Value matrices to
-						calculate masked self-attention.
+						图 <span class="attention">3</span>. 使用查询、键和值矩阵计算掩码自注意力
+
 					</div>
 
 					<ul>
@@ -217,24 +211,21 @@
 				<div class="article-subsection-l2">
 					<h4>第三步: 输出</h4>
 					<p>
-						The model uses the masked self-attention scores and multiplies them with the
-						<span class="v-color">Value</span> matrix to get the
-						<span class="purple-color">final output</span>
-						of the self-attention mechanism. GPT-2 has <code>12</code> self-attention heads, each capturing
-						different relationships between tokens. The outputs of these heads are concatenated and passed
-						through a linear projection.
+						模型使用掩码自注意力分数并将其与 <span class="v-color">Value</span> 矩阵相乘，得到自注意力机制的 
+						<span class="purple-color">最终输出</span>。 
+						GPT-2 有 `12` 个自注意力头，每个头捕捉词符之间不同的关系。 这些头的输出被连接起来，并通过一个线性投影。
 					</p>
 				</div>
 
 				<div class="article-subsection">
-					<h3>MLP: Multi-Layer Perceptron</h3>
+					<h3>多层感知机 (MLP)	</h3>
 
 					<div class="figure">
 						<img src="./article_assets/mlp.png" alt="mlp" width="70%" align="middle" />
 					</div>
 					<div class="figure-caption">
-						Figure <span class="attention">4</span>. Using MLP layer to project the self-attention
-						representations into higher dimensions to enhance the model's representational capacity.
+						图 <span class="attention">4</span>. 使用 MLP 层将自注意力表示投影到更高维度，以增强模型的表示能力
+
 					</div>
 
 					<p>
